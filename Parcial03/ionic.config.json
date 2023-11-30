@@ -1,0 +1,7 @@
+{
+  "name": "Parcial03",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue-vite"
+}
