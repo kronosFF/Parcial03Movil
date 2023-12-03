@@ -6,7 +6,7 @@
         <ion-buttons slot="start">
           <ion-menu-button color="primary"></ion-menu-button>
         </ion-buttons>
-        <ion-title>{{ $route.params.id }}</ion-title>
+        <ion-title>Contácto</ion-title>
       </ion-toolbar>
     </ion-header>
     <!--fin Menu toggle-->
@@ -15,14 +15,14 @@
       <div id="container">
       </div>
       <!--Componente del listado-->
-      <ListApp class="listComponent"/>
+      <FormApp class="listComponent"/>
     </ion-content>
   </ion-page>
 </template>
 
 <script setup lang="ts">
 import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/vue';
-import ListApp from '@/components/ListApp.vue';
+import FormApp from '@/components/FormApp.vue'
 </script>
 
 <style scoped>

@@ -5,12 +5,15 @@
         <ion-content>
           <ion-list id="inbox-list">
             <ion-list-header>
-              <img class="image" src="./assets/img/logo.png" alt="">
+              <div class="header-content">
+                <img class="image" src="./assets/img/logo.png" alt="logo-anime">
+                <ion-note class="note">By | Yeison Lopez</ion-note>
+              </div>
             </ion-list-header>
-            <ion-note>By | Yeison Lopez</ion-note>
 
             <ion-menu-toggle :auto-hide="false" v-for="(p, i) in appPages" :key="i">
-              <ion-item @click="selectedIndex = i" router-direction="root" :router-link="p.url" lines="none" :detail="false" class="hydrated" :class="{ selected: selectedIndex === i }">
+              <ion-item @click="selectedIndex = i" router-direction="root" :router-link="p.url" lines="none"
+                :detail="false" class="hydrated" :class="{ selected: selectedIndex === i }">
                 <ion-icon aria-hidden="true" slot="start" :ios="p.iosIcon" :md="p.mdIcon"></ion-icon>
                 <ion-label>{{ p.title }}</ion-label>
               </ion-item>
@@ -40,25 +43,12 @@ import {
 } from '@ionic/vue';
 import { ref } from 'vue';
 import {
-archive,
-  archiveOutline,
-  archiveSharp,
-  bookmarkOutline,
-  bookmarkSharp,
+  archive,
   gitBranch,
   heart,
-  heartOutline,
-  heartSharp,
   home,
   mail,
-  mailSharp,
-  paperPlaneOutline,
-  paperPlaneSharp,
   trash,
-  trashOutline,
-  trashSharp,
-  warningOutline,
-  warningSharp,
 } from 'ionicons/icons';
 
 const selectedIndex = ref(0);
@@ -99,7 +89,7 @@ const appPages = [
     iosIcon: trash,
     mdIcon: trash,
   },
-  
+
 ];
 
 const path = window.location.pathname.split('folder/')[1];
@@ -113,9 +103,8 @@ ion-menu ion-content {
   --background: var(--ion-item-background, var(--ion-background-color, #fff));
 }
 
-img{
-  width: 210px;
-  height: 180px;
+ion-toolbar {
+  --opacity: 0.5;
 }
 
 ion-menu.md ion-content {
@@ -138,6 +127,40 @@ ion-menu.md ion-note {
   padding-left: 10px;
 }
 
+ion-list-header {
+  height: 180px;
+  width: 350px;
+  background-color: #EE5487;
+  background: linear-gradient(90deg, #EE5487 0%, #e8458e 100%);
+  box-shadow: 0px 1px 10px darkgrey;
+  transform: rotate(-15deg);
+  border-radius: 10px 10px 10px 50px;
+  margin-left: -18px;
+  margin-top: -60px;
+  margin-bottom: 60px;
+}
+
+.header-content {
+  position: absolute;
+  top: 30px;
+  left: 15px;
+  display: flex;
+  align-items: center;
+}
+
+img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  transform: rotate(15deg);
+}
+
+.note {
+  color: white;
+  transform: rotate(15deg);
+  margin-top: 70px;
+}
+
 ion-menu.md ion-list#inbox-list {
   border-bottom: 1px solid var(--ion-color-step-150, #d7d8da);
 }
@@ -147,16 +170,6 @@ ion-menu.md ion-list#inbox-list ion-list-header {
   font-weight: 600;
 
   min-height: 20px;
-}
-
-ion-menu.md ion-list#labels-list ion-list-header {
-  font-size: 16px;
-
-  margin-bottom: 18px;
-
-  color: #757575;
-
-  min-height: 26px;
 }
 
 ion-menu.md ion-item {
@@ -201,16 +214,18 @@ ion-menu.ios ion-item {
 }
 
 ion-menu.ios ion-item.selected ion-icon {
-  color: var(--ion-color-primary);
+  color: #e42967;
+}
+
+ion-menu.ios ion-item.selected {
+  color: #e42967;
+  --background: rgba(234, 96, 134, 0.14);
+  border-radius: 50px;
 }
 
 ion-menu.ios ion-item ion-icon {
   font-size: 24px;
-  color: #73849a;
-}
-
-ion-menu.ios ion-list#labels-list ion-list-header {
-  margin-bottom: 8px;
+  color: black;
 }
 
 ion-menu.ios ion-list-header,
